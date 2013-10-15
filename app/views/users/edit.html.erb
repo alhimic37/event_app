@@ -1,0 +1,27 @@
+<% provide(:title, 'Edit profile') %>
+<div class="hero-unit">
+<div class="page-header">
+<div class="btn-group">
+    <%= link_to 'Show', @user, class: "btn" %>|
+</div>
+<h1>Edit profile</h1>
+</div>
+
+<div class="row">
+    <%= form_for(@user) do |f| %>
+       <!--<%= render 'shared/error_messages'%>-->
+       <%= render 'users/fields_errors_flash' %>
+       <div class="span5">
+    
+           <%= render 'users/avatar' %>
+           <%= f.label :avatar %>
+           <%= f.file_field :avatar %>
+       </div>
+       <div class="span5">
+          <%= render 'fields', f: f %>
+          <%= f.submit "Update profile", class: "btn btn-large btn-primary span5" %>
+       </div>
+    <% end %>
+</div>
+
+</div>

@@ -1,0 +1,7 @@
+<h2>Editing</h2>
+
+<%= render 'users/fields_errors_flash'%>
+<%= form_for(@event, html: {remote: true})  do |f| %>
+  <%= render 'fields', f: f %>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>

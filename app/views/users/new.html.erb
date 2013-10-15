@@ -1,0 +1,18 @@
+<% provide(:title, 'Sign up') %>
+<div class="hero-unit">
+<div class="page-header">
+<h1>Sign up</h1>
+</div>
+
+<div class="row">
+
+    <%= form_for(@user) do |f| %>
+       <!--<%= render 'shared/error_messages'%>-->
+       <%= render 'users/fields_errors_flash' %>
+       <div class="span5 offset3">
+       <%= render 'fields', f: f %>
+       <%= f.submit "Sign Up", class: "btn btn-large btn-primary span5" %>
+        </div>
+    <% end %>
+</div>
+</div>

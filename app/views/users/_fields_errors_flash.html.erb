@@ -1,0 +1,12 @@
+<%if flash.any? %>
+<div id="error_explanation" class="alert alert-error">
+ <a class="close" data-dismiss="alert">&#215;</a>
+<% flash.each do |key, value| %>
+  <%if key.to_s.include? "some_field_error"%>
+        <%= content_tag(:p, value, class: "") %>
+        
+         <%end%>
+<%end%>
+</div>
+<%end%>
+
