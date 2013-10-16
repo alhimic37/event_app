@@ -16,18 +16,28 @@ class EventsController < ApplicationController
   
   def create
        @event = Event.new(event_params)
-       render :new unless @event.save
+       
+       if @event.save
+           flash.now[:notice] = "Event created."
+       else
+           render :new
+       end
   end
   
 
   def update
     @event = Event.find(params[:id]);
-    render :edit unless @event.update_attributes(event_params)
+    if @event.update_attributes(event_params)
+        flash.now[:notice] = "Event updated."
+    else
+        render :edit 
+    end
   end
 
   def destroy
     @event = Event.find(params[:id]);
     @event.destroy
+    flash.now[:notice] = "Event destroyed."
   end
   
   private

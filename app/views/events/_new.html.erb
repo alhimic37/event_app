@@ -1,6 +1,6 @@
 <h2>New event</h2>
 
-<%= render 'users/fields_errors_flash'%>
+<%= render 'shared/error_messages', f: @event%>
 <%= form_for(@event, html: {remote: true})  do |f| %>
   <%= render 'fields', f: f %>
   <%= f.submit "Create", class: "btn btn-primary" %>

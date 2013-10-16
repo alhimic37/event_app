@@ -1,5 +1,7 @@
 class Event < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
+  belongs_to :user
+  
   has_event_calendar
   
   validates :name, presence: true, length: { maximum: 50 }

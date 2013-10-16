@@ -1,3 +1,5 @@
+
+
 /*
  * Smart event highlighting
  * Handles when events span rows, or don't have a background color

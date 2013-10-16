@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   include ActiveModel::ForbiddenAttributesProtection
   
-  #has_many :events
+  has_many :events
   
   has_attached_file :avatar, :default_url => "/system/users/avatars/blank_avatar.jpg",
                              :path => ":rails_root/public/system/users/:id/:style/:filename",

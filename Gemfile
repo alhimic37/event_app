@@ -37,6 +37,7 @@ gem 'jquery-ui-rails'
 gem 'event-calendar', :require => 'event_calendar'
 gem 'newrelic_rpm'
 gem 'lazybox'
+gem 'nested_scaffold'
 #######
 
 group :doc do

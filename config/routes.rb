@@ -1,10 +1,12 @@
 EventCalendar::Application.routes.draw do
-  match '/calendar(/:year(/:month))' => 'calendar#index', :as => :calendar, :constraints => {:year => /\d{4}/, :month => /\d{1,2}/}, via: [:get, :put, :post, :delete]
   root "calendar#index"
   
-  resources :users, :events
+  resources :users do
+      resources :events, shallow: true
+  end
   
   resources :sessions, only: [:new, :create, :destroy]
+  
   get '/signup',  to: 'users#new'
   get '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
