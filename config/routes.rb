@@ -1,9 +1,7 @@
 EventCalendar::Application.routes.draw do
   root "calendar#index"
   
-  resources :users do
-      resources :events, shallow: true
-  end
+  resources :users, :events
   
   resources :sessions, only: [:new, :create, :destroy]
   

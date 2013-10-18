@@ -1,21 +1,17 @@
 class EventsController < ApplicationController
-  def new
-  end
+  include SessionsHelper
+  before_filter :signed_in_user
   
   def new
-      @event = Event.new
+    @event = current_user.events.build
   end
   
   def show
-      @event = Event.find(params[:id]);
-  end
-  
-  def edit
-      @event = Event.find(params[:id]);
+      @event = current_user.events.find(params[:id]);
   end
   
   def create
-       @event = Event.new(event_params)
+    @event = current_user.events.build(event_params)
        
        if @event.save
            flash.now[:notice] = "Event created."
@@ -24,9 +20,12 @@ class EventsController < ApplicationController
        end
   end
   
-
+  def edit
+    @event = current_user.events.find(params[:id])
+  end
+  
   def update
-    @event = Event.find(params[:id]);
+    @event = current_user.events.find(params[:id]);
     if @event.update_attributes(event_params)
         flash.now[:notice] = "Event updated."
     else
@@ -35,7 +34,7 @@ class EventsController < ApplicationController
   end
 
   def destroy
-    @event = Event.find(params[:id]);
+    @event = current_user.events.find(params[:id]);
     @event.destroy
     flash.now[:notice] = "Event destroyed."
   end

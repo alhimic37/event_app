@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 ######
 gem "paperclip", "~> 3.0"
-gem 'event-calendar', :require => 'event_calendar'
 gem 'bootstrap-sass'
 gem 'holder_rails'
 gem 'jquery-ui-rails'
@@ -38,6 +37,7 @@ gem 'event-calendar', :require => 'event_calendar'
 gem 'newrelic_rpm'
 gem 'lazybox'
 gem 'nested_scaffold'
+gem "paloma", "~> 3.0.0"
 #######
 
 group :doc do

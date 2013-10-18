@@ -16,9 +16,6 @@
   <%if Rails.env.development? %>
     <%=debug(params)%>
     <%=debug(request.query_parameters)%>
-    <%=debug(request.original_fullpath)%>
-    <%=debug(request.original_url)%>
-    <%=debug(request.ip)%>
   <%end%>
 </div>
 </body>

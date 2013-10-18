@@ -65,7 +65,10 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.0)
+    nested_scaffold (0.1.0)
     newrelic_rpm (3.6.7.159)
+    paloma (3.0.0)
+      jquery-rails
     paperclip (3.5.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -136,7 +139,9 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   lazybox
+  nested_scaffold
   newrelic_rpm
+  paloma (~> 3.0.0)
   paperclip (~> 3.0)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)

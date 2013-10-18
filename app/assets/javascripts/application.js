@@ -15,4 +15,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require lazybox
-//= require_tree .
+//= require paloma
+//= require_tree ./sitewide
+//= require ./paloma/events/events
+//= require event

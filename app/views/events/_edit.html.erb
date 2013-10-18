@@ -1,7 +1,8 @@
 <h2>Editing</h2>
 
-<%= render 'shared/error_messages', f: @event%>
+
 <%= form_for(@event, html: {remote: true})  do |f| %>
-  <%= render 'fields', f: f %>
+<%= render 'shared/error_messages', object: f.object %>
+<%= render 'fields', fields: f %>
   <%= f.submit "Update", class: "btn btn-primary" %>
 <% end %>
