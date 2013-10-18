@@ -38,6 +38,8 @@ gem 'newrelic_rpm'
 gem 'lazybox'
 gem 'nested_scaffold'
 gem "paloma", "~> 3.0.0"
+gem 'fullcalendar-rails'
+gem "ajax", "~> 1.1.7"
 #######
 
 group :doc do

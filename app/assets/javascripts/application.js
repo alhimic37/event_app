@@ -19,3 +19,4 @@
 //= require_tree ./sitewide
 //= require ./paloma/events/events
 //= require event
+//= require fullcalendar

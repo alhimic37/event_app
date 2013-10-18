@@ -3,7 +3,6 @@ class EventsController < ApplicationController
   before_filter :signed_in_user
   
   def new
-    @event = current_user.events.build
   end
   
   def show

@@ -1,3 +1,16 @@
+var jqxhr = $.get( "example.php", function() {
+alert( "success" );
+})
+.done(function() {
+alert( "second success" );
+})
+.fail(function() {
+alert( "error" );
+})
+.always(function() {
+alert( "finished" );
+});
+
 jQuery(document).ready(function($) {  
   
   $(".ec-event").find("a").attr('data-remote', 'true');

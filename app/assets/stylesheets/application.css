@@ -10,5 +10,6 @@
  *
  *= require_self
  *= require lazybox
+*= require fullcalendar
  *= require_tree .
  */
