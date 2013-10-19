@@ -32,14 +32,11 @@ gem "paperclip", "~> 3.0"
 gem 'bootstrap-sass'
 gem 'holder_rails'
 gem 'jquery-ui-rails'
-#gem 'calendrier', :git => "git://github.com/lafourmi/calendrier.git", :branch => "master"
-gem 'event-calendar', :require => 'event_calendar'
-gem 'newrelic_rpm'
+#gem 'newrelic_rpm'
 gem 'lazybox'
-gem 'nested_scaffold'
+#gem 'nested_scaffold'
 gem "paloma", "~> 3.0.0"
 gem 'fullcalendar-rails'
-gem "ajax", "~> 1.1.7"
 #######
 
 group :doc do

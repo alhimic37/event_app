@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.all
 //= require turbolinks
 //= require bootstrap
 //= require lazybox
@@ -19,4 +20,9 @@
 //= require_tree ./sitewide
 //= require ./paloma/events/events
 //= require event
-//= require fullcalendar
+
+$.ajaxSetup({
+  beforeSend: function(xhr) {
+    xhr.setRequestHeader("Accept", "text/javascript");
+  }
+});

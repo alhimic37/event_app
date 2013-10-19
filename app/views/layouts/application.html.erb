@@ -3,23 +3,28 @@
 <head>
 <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag "fullcalendar" %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "jquery-ui-1.8.11.custom.min.js" %>
-  <%= javascript_include_tag "fullcalendar.js" %>
-  <%= javascript_include_tag "calendar.js" %>
-<%= csrf_meta_tags %>
-<%= render 'layouts/shim' %>
+  <%= javascript_include_tag "jquery.rest" %>
+    <!-- these are needed for the calendar. -->
+  <%= javascript_include_tag "fullcalendar" %>
+  <%= javascript_include_tag "calendar" %>
+  
+  <%= csrf_meta_tags %>
+  <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
+  
+  <%= render 'layouts/shim' %>
 </head>
 <body>
-<%= render 'layouts/header' %>
-<div id="body" class="container">
-  <%= render 'layouts/messages' %>
-<%= yield %>
-<%= render 'layouts/footer' %>
-  <%if Rails.env.development? %>
-    <%=debug(params)%>
-    <%=debug(request.query_parameters)%>
-  <%end%>
+  <%= render 'layouts/header' %>
+  <div id="body" class="container">
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+    <%if Rails.env.development? %>
+      <%=debug(params)%>
+      <%=debug(request.query_parameters)%>
+    <%end%>
 </div>
 </body>
 </html>
