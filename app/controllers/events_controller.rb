@@ -1,12 +1,29 @@
 class EventsController < ApplicationController
   include SessionsHelper
-  before_filter :signed_in_user
+  before_filter :signed_in_user, :except=>[:index]
+  
+  def index
+     # full_calendar will hit the index method with query parameters
+    # 'start' and 'end' in order to filter the results for the
+    # appropriate month/week/day
+    @events = Event.all
+    @events = @events.after(params['start']) if (params['start'])
+    @events = @events.before(params['end']) if (params['end'])
+    
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @events }
+      format.js  { render :json => @events }
+    end
+  end
   
   def new
+    @event = current_user.events.build
   end
   
   def show
-      @event = current_user.events.find(params[:id]);
+      @event = current_user.events.find(params[:id])
+
   end
   
   def create
@@ -40,7 +57,7 @@ class EventsController < ApplicationController
   
   private
   def event_params
-    params.require(:event).permit(:name, :start_at, :end_at)
+    params.require(:event).permit(:title, :desctiption, :start_at, :end_at)
   end
   
 end

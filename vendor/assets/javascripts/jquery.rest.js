@@ -1,21 +1,43 @@
+/*
+ * Copyright (c) 2011 Lyconic, LLC.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 (function($){
 
     var _ajax = $.ajax;
 
     // Will only use method override if $.restSetup.useMethodOverride is set to true
     // Change the values of this global object if your method parameter is different.
-    $.restSetup = {
+    $.restSetup = { 
       methodParam: '_method',
       useMethodOverride: false,
       verbs: {
-        create: 'POST',
-        update: 'PUT',
+        create:  'POST',
+        update:  'PUT',
         destroy: 'DELETE'
       }
     };
 
     // collect csrf param & token from meta tags if they haven't already been set
-    $(document).on(function(){
+    $(document).ready(function(){
       $.restSetup.csrfParam = $.restSetup.csrfParam || $('meta[name=csrf-param]').attr('content');
       $.restSetup.csrfToken = $.restSetup.csrfToken || $('meta[name=csrf-token]').attr('content');
     });
@@ -85,7 +107,7 @@
           methodOverride;
 
       if (typeof settings.data !== "string")
-      if (settings.data !== null) {
+      if (settings.data != null) {
           settings.data = $.param(settings.data);
       }
 

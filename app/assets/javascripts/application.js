@@ -16,10 +16,10 @@
 //= require turbolinks
 //= require bootstrap
 //= require lazybox
-//= require paloma
 //= require_tree ./sitewide
-//= require ./paloma/events/events
-//= require event
+//= require calendar
+//= require fullcalendar
+
 
 $.ajaxSetup({
   beforeSend: function(xhr) {

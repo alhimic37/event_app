@@ -15,8 +15,10 @@ module SessionsHelper
   
     def signed_in_user
        unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
+         store_location
+         flash[:notice] = "Please sign in."
+         flash.keep(:notice) # Keep flash notice around for the redirect.
+         render :js => "window.location = #{signin_path.to_json}"
       end
     end
   

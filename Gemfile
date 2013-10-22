@@ -35,8 +35,8 @@ gem 'jquery-ui-rails'
 #gem 'newrelic_rpm'
 gem 'lazybox'
 #gem 'nested_scaffold'
-gem "paloma", "~> 3.0.0"
-gem 'fullcalendar-rails'
+#gem "paloma", "~> 3.0.0"
+#gem 'fullcalendar-rails'
 #######
 
 group :doc do

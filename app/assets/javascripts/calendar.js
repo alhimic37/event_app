@@ -5,6 +5,9 @@ $(document).ready(function() {
 	var m = date.getMonth();
 	var y = date.getFullYear();
 	
+  
+
+  
 	$('#calendar').fullCalendar({
 		editable: true,        
 		header: {
@@ -21,6 +24,7 @@ $(document).ready(function() {
                 $('#loading').show();
             else 
                 $('#loading').hide();
+            
         },
         
         // a future calendar might have many sources.        
@@ -46,17 +50,23 @@ $(document).ready(function() {
 
         // http://arshaw.com/fullcalendar/docs/mouse/eventClick/
         eventClick: function(event, jsEvent, view){
-          // would like a lightbox here.
+        
         },
+    
+      dayClick: function(date, allDay, jsEvent, view) {
+       
+    }
 	});
+  
+
 });
 
 function updateEvent(the_event) {
     $.update(
       "/events/" + the_event.id,
       { event: { title: the_event.title,
-                 starts_at: "" + the_event.start,
-                 ends_at: "" + the_event.end,
+                 start_at: "" + the_event.start,
+                 end_at: "" + the_event.end,
                  description: the_event.description
                }
       },

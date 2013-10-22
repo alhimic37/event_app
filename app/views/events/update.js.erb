@@ -1,3 +1,4 @@
 $.lazybox.close();
 $("div").find(".alert").remove();
 $("#body").prepend("<%= j render 'layouts/messages' %>");
+$('#calendar').fullCalendar('refetchEvents');

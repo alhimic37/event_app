@@ -44,7 +44,6 @@ GEM
     coffee-script-source (1.6.3)
     erubis (2.7.0)
     execjs (2.0.2)
-    fullcalendar-rails (1.6.4.0)
     hike (1.2.3)
     holder_rails (2.1.0)
       railties (>= 3.1.0)
@@ -65,8 +64,6 @@ GEM
     mime-types (1.25)
     minitest (4.7.5)
     multi_json (1.8.2)
-    paloma (3.0.0)
-      jquery-rails
     paperclip (3.5.1)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -131,13 +128,11 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   bootstrap-sass
   coffee-rails (~> 4.0.0)
-  fullcalendar-rails
   holder_rails
   jbuilder (~> 1.2)
   jquery-rails
   jquery-ui-rails
   lazybox
-  paloma (~> 3.0.0)
   paperclip (~> 3.0)
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
