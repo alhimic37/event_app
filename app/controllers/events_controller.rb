@@ -1,9 +1,12 @@
 class EventsController < ApplicationController
-  include SessionsHelper 
+
   before_action :signed_in_user, :except=>[:index]
   before_action :set_timezone
   def set_timezone
-    Time.zone = current_user.time_zone || 'UTC'
+    Time.zone = 'UTC'
+    if signed_in?
+      Time.zone = current_user.time_zone
+    end
   end
   
   def index

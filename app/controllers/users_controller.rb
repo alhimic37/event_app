@@ -1,10 +1,12 @@
-class UsersController < ApplicationController
-  include SessionsHelper    
+class UsersController < ApplicationController    
     
   before_action :correct_user,   only: [:show, :edit, :update, :destroy]
   before_action :set_timezone
   def set_timezone
-    Time.zone = current_user.time_zone || 'UTC'
+    Time.zone = 'UTC'
+    if signed_in?
+      Time.zone = current_user.time_zone
+    end
   end
   # GET /users
   def index

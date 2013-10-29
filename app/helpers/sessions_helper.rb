@@ -44,5 +44,4 @@ module SessionsHelper
     session.delete(:return_to)
   end
   
-  
 end

@@ -1,9 +1,9 @@
 class CalendarController < ApplicationController
-  include SessionsHelper 
+
   def index
     respond_to do |format|
       format.html
-      format.js {render json: current_user}
+      format.js {render color: 'violet'}
     end
     
   end
