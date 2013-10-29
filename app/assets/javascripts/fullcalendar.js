@@ -1,4 +1,4 @@
--/*!
+/*!
  * FullCalendar v1.6.4
  * Docs & License: http://arshaw.com/fullcalendar/
  * (c) 2013 Adam Shaw
@@ -2451,7 +2451,7 @@ function BasicView(element, calendar, viewName) {
 	
 	
 	function dayBind(days) {
-		days.click(dayClick)
+		days.dblclick(dayClick)
 			.mousedown(daySelectionMousedown);
 	}
 	

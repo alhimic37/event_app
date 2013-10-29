@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131020133400) do
+ActiveRecord::Schema.define(version: 20131023094554) do
 
   create_table "events", force: true do |t|
     t.string   "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20131020133400) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "time_zone"
   end
 
   add_index "users", ["remember_token"], name: "index_users_on_remember_token"

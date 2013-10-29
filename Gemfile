@@ -35,7 +35,8 @@ gem 'jquery-ui-rails'
 #gem 'newrelic_rpm'
 gem 'lazybox'
 #gem 'nested_scaffold'
-#gem "paloma", "~> 3.0.0"
+gem "paloma", "~> 3.0.0"
+#gem 'detect_timezone_rails'
 #gem 'fullcalendar-rails'
 #######
 

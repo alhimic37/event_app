@@ -1,12 +1,14 @@
-$(document).ready(function() {
+var CalendarController = Paloma.controller('Calendar');
+
+// Executes when Rails Calendar#index is executed.
+CalendarController.prototype.index = function(){
+
+   $(document).ready(function() {
 
 	var date = new Date();
 	var d = date.getDate();
 	var m = date.getMonth();
 	var y = date.getFullYear();
-	
-  
-
   
 	$('#calendar').fullCalendar({
 		editable: true,        
@@ -29,7 +31,7 @@ $(document).ready(function() {
         
         // a future calendar might have many sources.        
         eventSources: [{
-            url: '/events',
+            url: 'events/'
             color: 'yellow',
             textColor: 'black',
             ignoreTimezone: false
@@ -50,11 +52,11 @@ $(document).ready(function() {
 
         // http://arshaw.com/fullcalendar/docs/mouse/eventClick/
         eventClick: function(event, jsEvent, view){
-        
+       
         },
     
       dayClick: function(date, allDay, jsEvent, view) {
-       
+        $.get('events/new', {date: date});
     }
 	});
   
@@ -72,4 +74,5 @@ function updateEvent(the_event) {
       },
       function (reponse) { alert('successfully updated task.'); }
     );
+};
 };

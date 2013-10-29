@@ -16,9 +16,13 @@
 //= require turbolinks
 //= require bootstrap
 //= require lazybox
-//= require_tree ./sitewide
-//= require calendar
+//= require paloma
 //= require fullcalendar
+//= require_tree ./sitewide
+//= require ./paloma/calendar/paloma_calendar
+//= require jquery.rest
+//= require jquery.localtime-0.8.0
+
 
 
 $.ajaxSetup({
@@ -26,3 +30,10 @@ $.ajaxSetup({
     xhr.setRequestHeader("Accept", "text/javascript");
   }
 });
+
+jQuery(document).ready(function($) {
+    $('.datepicker').datepicker();
+  });
+
+
+

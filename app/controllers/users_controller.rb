@@ -2,7 +2,10 @@ class UsersController < ApplicationController
   include SessionsHelper    
     
   before_action :correct_user,   only: [:show, :edit, :update, :destroy]
-
+  before_action :set_timezone
+  def set_timezone
+    Time.zone = current_user.time_zone || 'UTC'
+  end
   # GET /users
   def index
     @users = User.all
@@ -64,7 +67,7 @@ class UsersController < ApplicationController
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :birth_date, :password, :password_confirmation, :avatar)
+      params.require(:user).permit(:name, :email, :birth_date, :password, :password_confirmation, :avatar, :time_zone)
     end
   
   def correct_user

@@ -3,13 +3,12 @@
 <head>
 <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "jquery.rest" %>
-
+  <%= javascript_include_tag "application", "jquery.localtime-0.8.0", "data-turbolinks-track" => true %>
   
   <%= csrf_meta_tags %>
   <%= javascript_tag "var AUTH_TOKEN = #{form_authenticity_token.inspect};" if protect_against_forgery? %>
   
+  <%= yield :head %>
   <%= render 'layouts/shim' %>
 </head>
 <body>
@@ -21,6 +20,7 @@
     <%if Rails.env.development? %>
       <%=debug(params)%>
       <%=debug(request.query_parameters)%>
+   
     <%end%>
 </div>
 </body>

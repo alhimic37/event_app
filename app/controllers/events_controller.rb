@@ -1,6 +1,10 @@
 class EventsController < ApplicationController
-  include SessionsHelper
-  before_filter :signed_in_user, :except=>[:index]
+  include SessionsHelper 
+  before_action :signed_in_user, :except=>[:index]
+  before_action :set_timezone
+  def set_timezone
+    Time.zone = current_user.time_zone || 'UTC'
+  end
   
   def index
      # full_calendar will hit the index method with query parameters
@@ -12,18 +16,20 @@ class EventsController < ApplicationController
     
     respond_to do |format|
       format.html # index.html.erb
-      format.xml  { render :xml => @events }
-      format.js  { render :json => @events }
+      format.xml { render :xml => @events }
+      format.js { render :json => @events }
     end
   end
   
   def new
     @event = current_user.events.build
+   
+    @event.start_at = Time.zone.parse(params[:date]).utc
+    @event.end_at =  Time.zone.parse(params[:date]).utc
   end
   
   def show
       @event = current_user.events.find(params[:id])
-
   end
   
   def create

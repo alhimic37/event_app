@@ -1,5 +1,5 @@
 EventCalendar::Application.routes.draw do
-  root 'events#index'
+  root to: 'calendar#index'
   
   resources :users, :events
   

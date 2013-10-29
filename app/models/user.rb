@@ -22,10 +22,11 @@ class User < ActiveRecord::Base
   
   validates :password, length: { minimum: 6 }, :if => lambda { new_record? || !password.nil? }
   validates :password_confirmation, presence: true, :if => lambda { new_record? || !password.nil?}
+  validates :time_zone, presence: true
   
   private
   def user_params
-    params.require(:user).permit(:name, :email, :birth_date, :password, :password_confirmation, :avatar)
+    params.require(:user).permit(:name, :email, :birth_date, :password, :password_confirmation, :avatar, :time_zone)
   end
   
   def create_remember_token

@@ -10,9 +10,14 @@
 
 <div class="field">
 <%= f.label :birth_date %>
-<%= f.date_select :birth_date %>
+<%= f.date_field :birth_date, class: 'datepicker' %>
 </div>
-  
+
+<div class="field">
+<%= f.label :time_zone %>
+<%= f.time_zone_select(:time_zone, nil, :class => :timezone) %>
+</div>
+
 <div class="field">
 <%= f.label :password %>
 <%= f.password_field :password %>
