@@ -2,12 +2,9 @@ var CalendarController = Paloma.controller('Calendar');
 
 // Executes when Rails Calendar#index is executed.
 CalendarController.prototype.index = function(){
-
+  var eventsSource = this.params['eventsSource'];
+  
  $(document).ready(function() {
-
-
-
-
 
 	var date = new Date();
 	var d = date.getDate();
@@ -35,7 +32,7 @@ CalendarController.prototype.index = function(){
         
         // a future calendar might have many sources.        
         eventSources: [{
-            url: '/events',
+            url: eventsSource,
             color: 'blue',
             textColor: 'black',
             ignoreTimezone: false

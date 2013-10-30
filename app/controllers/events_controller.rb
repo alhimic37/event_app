@@ -13,9 +13,29 @@ class EventsController < ApplicationController
      # full_calendar will hit the index method with query parameters
     # 'start' and 'end' in order to filter the results for the
     # appropriate month/week/day
-    @events = Event.all
-    @events = @events.after(params['start']) if (params['start'])
-    @events = @events.before(params['end']) if (params['end'])
+    #TODO: refactoring
+    if signed_in?
+      @non_user_events = Event.where.not('user_id = ?', current_user.id)
+      @non_user_events = @non_user_events.after(params['start']) if (params['start'])
+      @non_user_events = @non_user_events.before(params['end']) if (params['end'])
+     
+      @user_events = current_user.events
+      @user_events = @user_events.after(params['start']) if (params['start'])
+      @user_events = @user_events.before(params['end']) if (params['end'])
+    
+      @user_events.map!{|x|
+        hash = JSON.parse(x.to_json)
+        #color of user's events
+        hash['color'] = 'red'
+        x = hash.as_json
+      }
+
+      @events = @non_user_events + @user_events
+    else
+      @events = Event.all
+      @events = @events.after(params['start']) if (params['start'])
+      @events = @events.before(params['end']) if (params['end'])
+    end
     
     respond_to do |format|
       format.html # index.html.erb
