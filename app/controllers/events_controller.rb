@@ -52,7 +52,7 @@ class EventsController < ApplicationController
   end
   
   def show
-      @event = current_user.events.find(params[:id])
+    @event = current_user.events.find_by(id: params[:id]) || Event.find(params[:id])
   end
   
   def create
