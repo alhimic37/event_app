@@ -11,11 +11,14 @@
 <div class='row'>
   <div class="field span2">
     <%= fields.label :start_at %>
-    <%= fields.text_field :start_at, :value => l(@event.start_at, :format => :datepicker), class: 'datepicker'  %>
+    <%= fields.text_field :start_at, :value => l(@event.start_at, :format => :datetimepicker) %>
   </div>
-  
   <div class="field span2">
     <%= fields.label :end_at %>
-    <%= fields.text_field :end_at, :value => l(@event.end_at, :format => :datepicker), class: 'datepicker'  %>
+    <%= fields.text_field :end_at, :value => l(@event.end_at, :format => :datetimepicker) %>
+  </div>
+  <div class="field span1">
+    <%= fields.label :all_day %>
+    <%= fields.check_box :all_day, {checked: true}, true, false %>
   </div>
 </div>

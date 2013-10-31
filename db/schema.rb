@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20131023094554) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.boolean  "all_day"
+    t.boolean  "all_day",     default: false, null: false
     t.text     "description"
   end
 

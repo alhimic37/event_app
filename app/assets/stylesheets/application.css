@@ -11,5 +11,6 @@
  *= require_self
  *= require lazybox
  *= require jquery.ui.all
+ *= require jquery.timepicker.css
  *= require_tree .
  */

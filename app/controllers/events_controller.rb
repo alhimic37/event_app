@@ -21,6 +21,7 @@ class EventsController < ApplicationController
         hash = JSON.parse(x.to_json)
         #color of user's events
         hash['color'] = 'red'
+        hash['editable'] = true
         x = hash.as_json
       }
 
@@ -51,12 +52,12 @@ class EventsController < ApplicationController
   
   def create
     @event = current_user.events.build(event_params)
-       
-       if @event.save
-           flash.now[:notice] = "Event created."
-       else
-           render :new
-       end
+    
+    if @event.save
+      flash.now[:notice] = "Event created."
+    else
+      render :new
+    end
   end
   
   def edit
@@ -80,7 +81,7 @@ class EventsController < ApplicationController
   
   private
   def event_params
-    params.require(:event).permit(:title, :desctiption, :start_at, :end_at)
+    params.require(:event).permit(:title, :desctiption, :start_at, :end_at, :all_day)
   end
   
   def set_timezone

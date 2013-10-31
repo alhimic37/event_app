@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.ui.all
+//= require jquery.timepicker.js
 //= require turbolinks
 //= require bootstrap
 //= require lazybox
@@ -21,7 +22,8 @@
 //= require_tree ./sitewide
 //= require_tree ./paloma/
 //= require jquery.rest
-//= require jquery.localtime-0.8.0
+
+
 
 $.rails.allowAction = $.lazybox.confirm;
 

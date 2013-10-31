@@ -1,2 +1,12 @@
 $.lazybox("<%= j(render partial: 'edit') %>", {klass:"span4", speed: 100});
-$('.datepicker').datepicker({ dateFormat: 'dd.mm.yy'});
+$('#event_start_at').datetimepicker({
+	timeFormat: "HH:mm",
+  dateFormat: 'dd.mm.yy',
+  stepMinute: 10,
+});
+
+$('#event_end_at').datetimepicker({
+	timeFormat: "HH:mm",
+  dateFormat: 'dd.mm.yy',
+  stepMinute: 10,
+});

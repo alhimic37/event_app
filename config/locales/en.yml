@@ -23,7 +23,10 @@ en:
   time:
     formats:
       default: "%A, %B %e, %Y %H:%M"
+      allday:  "%A, %B %e"
       datepicker: "%d.%m.%Y"
+      timepicker: "%H:%M"
+      datetimepicker: "%d.%m.%Y %H:%M"
   date:
     formats:
       default: "%A, %B %e, %Y %H:%M %p"
