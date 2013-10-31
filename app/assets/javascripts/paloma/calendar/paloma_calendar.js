@@ -38,7 +38,7 @@ CalendarController.prototype.index = function(){
             ignoreTimezone: false
         }],
         
-        timeFormat: 'h:mm t{ - h:mm t} ',
+        timeFormat: 'H:mm',
         dragOpacity: "0.5",
         
         //http://arshaw.com/fullcalendar/docs/event_ui/eventDrop/
@@ -60,7 +60,6 @@ CalendarController.prototype.index = function(){
         $.get('events/new', {date: date});
     }
   });
-  
 
    });
 function updateEvent(the_event) {

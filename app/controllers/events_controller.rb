@@ -2,12 +2,6 @@ class EventsController < ApplicationController
 
   before_action :signed_in_user, :except=>[:index]
   before_action :set_timezone
-  def set_timezone
-    Time.zone = 'UTC'
-    if signed_in?
-      Time.zone = current_user.time_zone
-    end
-  end
   
   def index
      # full_calendar will hit the index method with query parameters
@@ -47,8 +41,8 @@ class EventsController < ApplicationController
   def new
     @event = current_user.events.build
    
-    @event.start_at = Time.zone.parse(params[:date]).utc
-    @event.end_at =  Time.zone.parse(params[:date]).utc
+    @event.start_at = Time.zone.parse(params[:date])
+    @event.end_at =  Time.zone.parse(params[:date])
   end
   
   def show
@@ -89,4 +83,7 @@ class EventsController < ApplicationController
     params.require(:event).permit(:title, :desctiption, :start_at, :end_at)
   end
   
+  def set_timezone
+    Time.zone = current_user.time_zone if signed_in?
+  end
 end

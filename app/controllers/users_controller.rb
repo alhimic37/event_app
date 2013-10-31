@@ -2,12 +2,7 @@ class UsersController < ApplicationController
     
   before_action :correct_user,   only: [:show, :edit, :update, :destroy]
   before_action :set_timezone
-  def set_timezone
-    Time.zone = 'UTC'
-    if signed_in?
-      Time.zone = current_user.time_zone
-    end
-  end
+
   # GET /users
   def index
     @users = User.all
@@ -75,5 +70,9 @@ class UsersController < ApplicationController
   def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
-    end
+  end
+  
+  def set_timezone
+    Time.zone = current_user.time_zone if signed_in?
+  end
 end

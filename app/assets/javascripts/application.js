@@ -19,11 +19,11 @@
 //= require paloma
 //= require fullcalendar
 //= require_tree ./sitewide
-//= require ./paloma/calendar/paloma_calendar
+//= require_tree ./paloma/
 //= require jquery.rest
 //= require jquery.localtime-0.8.0
 
-
+$.rails.allowAction = $.lazybox.confirm;
 
 $.ajaxSetup({
   beforeSend: function(xhr) {
@@ -31,9 +31,16 @@ $.ajaxSetup({
   }
 });
 
-jQuery(document).ready(function($) {
-    $('.datepicker').datepicker();
-  });
+$.lazybox.settings = {cancelClass: "btn btn-warning", submitClass: 'btn btn-danger', overlay: false}
+
+$(document).ready(function() {
+  $('a[rel*=lazybox]').lazybox();
+  // or with options
+  $('a[rel*=lazybox]').lazybox({overlay: true, esc: true, close: true, modal: true, klass: 'class', speed: 1});
+  
+  $('.datepicker').datepicker({ dateFormat: 'dd.mm.yy'});
+});
+
 
 
 

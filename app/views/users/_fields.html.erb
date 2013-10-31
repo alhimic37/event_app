@@ -8,14 +8,16 @@
 <%= f.text_field :email%>
 </div>
 
-<div class="field">
-<%= f.label :birth_date %>
-<%= f.date_field :birth_date, class: 'datepicker' %>
-</div>
-
-<div class="field">
-<%= f.label :time_zone %>
-<%= f.time_zone_select(:time_zone, nil, :class => :timezone) %>
+<div class='row'>
+  <div class="field span2">
+  <%= f.label :birth_date %>
+  <%= f.text_field :birth_date, class: 'datepicker' %>
+  </div>
+  
+  <div class="field span3">
+  <%= f.label :time_zone %>
+    <%= f.time_zone_select(:time_zone, nil, :default => "Kyiv" , :class => :timezone) %>
+  </div>
 </div>
 
 <div class="field">

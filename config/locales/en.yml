@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  time:
+    formats:
+      default: "%A, %B %e, %Y %H:%M"
+      datepicker: "%d.%m.%Y"
+  date:
+    formats:
+      default: "%A, %B %e, %Y %H:%M %p"
+      user: "%B %e, %Y"
+      
   
