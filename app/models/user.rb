@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
                              :url => "/system/users/:id/:style/:filename"
   validates_attachment_content_type :avatar, 
                                     :content_type => /^image\/(png|gif|jpeg)/
-                                    
+  validate :valitates_attachment_is_image
+  validate :valitates_attachment_size     
+  
   has_secure_password
 
   before_save { |user| user.email = email.downcase }
@@ -24,6 +26,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true, :if => lambda { new_record? || !password.nil?}
   validates :time_zone, presence: true
   
+  
   private
   def user_params
     params.require(:user).permit(:name, :email, :birth_date, :password, :password_confirmation, :avatar, :time_zone)
@@ -31,5 +34,22 @@ class User < ActiveRecord::Base
   
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
+  end
+  
+  def valitates_attachment_is_image
+    if self.avatar?
+      if !self.avatar.content_type.match(/^image\/(png|bmp|jpeg)/)
+        errors.add(:avatar, "must be an image. Try image in allowed formats: PNG, BMP, JPEG")
+      end
+    end
+  end
+
+  def valitates_attachment_size
+    if self.avatar?
+      size = 5
+      if self.avatar.size > size.megabytes
+        errors.add(:avatar, "must be less than #{size} megabytes")
+      end
+    end
   end
 end

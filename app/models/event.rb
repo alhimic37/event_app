@@ -12,8 +12,8 @@ class Event < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 50 }
   validates :start_at, presence: true
-  validates :end_at, presence: false
-  
+  validates :end_at, presence: true
+  validate :valitates_start_at_not_greater_end_at
   # http://arshaw.com/fullcalendar/docs/event_data/Event_Object/
   def as_json(options = {})
     {
@@ -29,7 +29,7 @@ class Event < ActiveRecord::Base
   end
 
   def self.format_date(date_time)
-    Time.at(date_time.to_i).to_formatted_s(:db)
+    Time.zone.at(date_time.to_i).to_formatted_s(:db)
   end
   
   private
@@ -41,6 +41,12 @@ class Event < ActiveRecord::Base
     if self.all_day
       self.start_at = self.start_at.change({:hour => 0 , :min => 0 , :sec => 0 })
       self.end_at = self.end_at.change({:hour => 0 , :min => 0 , :sec => 0 })
+    end
+  end
+  
+  def valitates_start_at_not_greater_end_at
+    if self.start_at > self.end_at
+      errors.add(:start_at, "must be less or equal 'End at' date ")
     end
   end
 end
