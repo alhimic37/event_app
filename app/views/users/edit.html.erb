@@ -2,13 +2,13 @@
 <div class="hero-unit">
 <div class="page-header">
 <div class="btn-group">
-    <%= link_to 'Show', @user, class: "btn" %>|
+    <%= link_to 'Show', current_user, class: "btn" %>|
 </div>
 <h1>Edit profile</h1>
 </div>
 
 <div class="row">
-    <%= form_for(@user) do |f| %>
+    <%= form_for(current_user) do |f| %>
        <%= render 'users/fields_errors_flash' %>
        <div class="span5">
     
