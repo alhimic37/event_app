@@ -35,6 +35,7 @@ gem 'jquery-ui-rails'
 #gem 'newrelic_rpm'
 gem 'lazybox'
 gem "paloma", "~> 3.0.0"
+gem "jquery-turbolinks"
 #######
 
 group :doc do

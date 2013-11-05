@@ -11,19 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.ui.all
-//= require jquery.timepicker.js
-//= require turbolinks
-//= require bootstrap
+//= require jquery.timepicker
+//= require fullcalendar
 //= require lazybox
 //= require paloma
-//= require fullcalendar
 //= require_tree ./sitewide
 //= require_tree ./paloma/
 //= require jquery.rest
-
-
+//= require turbolinks
+//= require bootstrap
 
 $.rails.allowAction = $.lazybox.confirm;
 
